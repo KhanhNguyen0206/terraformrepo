@@ -73,7 +73,6 @@ resource "azurerm_mssql_database" "db" {
   max_size_gb    = var.database_config.max_size_gb
   sku_name       = var.database_config.sku_name
 }
-
 resource "azurerm_storage_account" "lab-sta" {
   name                     = var.storage_account
   resource_group_name      = azurerm_resource_group.lab-rg.name
