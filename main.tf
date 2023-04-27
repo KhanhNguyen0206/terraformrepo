@@ -74,7 +74,7 @@ resource "azurerm_mssql_database" "db" {
   read_scale     = var.database_config.read_scale
   sku_name       = var.database_config.sku_name
   zone_redundant = var.database_config.zone_redundant
-  storage_account_type = var.database_config.storage_account
+  storage_account_type = var.database_config.storage_account_type
 }
 
 resource "azurerm_storage_account" "lab-sta" {
