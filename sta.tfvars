@@ -1,7 +1,7 @@
 resource_group_name     = "stag-rg"
 resource_group_location = "eastus"
 web_app_name            = "terraformlabapp"
-storage_account         = "labterraformstaccount"
+storage_account         = "labterraformstaccount2"
 app_service_plan_name   = "stag-appserviceplan"
 app_service_name        = "stag-appservice"
 mssql_server_name       = "stag-sqlserver"
