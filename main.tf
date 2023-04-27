@@ -49,7 +49,7 @@ resource "azurerm_app_service" "lab-asv" {
 }
 
 resource "azurerm_storage_account" "lab-sta" {
-  name                     = "lab-storage-account"
+  name                     = "lab-st-account"
   resource_group_name      = azurerm_resource_group.lab-rg.name
   location                 = azurerm_resource_group.lab-rg.location
   account_tier             = "Standard"
