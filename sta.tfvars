@@ -20,7 +20,6 @@ database_config = {
   max_size_gb           = 1
   read_scale            = true
   sku_name              = "BC_Gen5_2"
-  zone_redundant        = true
   storage_account_type  = "ZRS"
 }
 

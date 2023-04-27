@@ -68,7 +68,6 @@ variable "database_config" {
     max_size_gb           = number
     read_scale            = bool
     sku_name              = string
-    zone_redundant        = bool
     storage_account_type  = string
   })
   description = "Specifies a object of dbconfig to be applied to the resources created."
