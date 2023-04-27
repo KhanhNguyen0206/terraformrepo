@@ -76,7 +76,7 @@ resource "azurerm_mssql_database" "db" {
 }
 
 resource "azurerm_storage_account" "lab-sta" {
-  name                     = "labstaccount"
+  name                     = var.storage_account
   resource_group_name      = azurerm_resource_group.lab-rg.name
   location                 = azurerm_resource_group.lab-rg.location
   account_tier             = "Standard"
