@@ -27,8 +27,8 @@ resource "azurerm_resource_group" "lab-rg" {
 
 resource "azurerm_service_plan" "lab-asp" {
   name                = var.app_service_plan_name
-  location            = azurerm_resource_group.lab-rg.name
-  resource_group_name = azurerm_resource_group.lab-rg.location
+  location            = azurerm_resource_group.lab-rg.location
+  resource_group_name = azurerm_resource_group.lab-rg.name
   tags                = var.tags
   os_type             = "Linux"
   sku_name            = "S1"
