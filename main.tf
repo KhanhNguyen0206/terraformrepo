@@ -35,7 +35,7 @@ resource "azurerm_service_plan" "lab-asp" {
 }
 
 resource "azurerm_linux_web_app" "app" {
-  name                = "mywebapp"
+  name                = "terraformlabapp"
   resource_group_name = azurerm_resource_group.lab-rg.name
   location            = azurerm_resource_group.lab-rg.location
   service_plan_id     = azurerm_service_plan.lab-asp.id
@@ -77,7 +77,7 @@ resource "azurerm_mssql_database" "db" {
 }
 
 resource "azurerm_storage_account" "lab-sta" {
-  name                     = "labstaccount"
+  name                     = "labterraformstaccount"
   resource_group_name      = azurerm_resource_group.lab-rg.name
   location                 = azurerm_resource_group.lab-rg.location
   account_tier             = "Standard"
