@@ -66,7 +66,6 @@ variable "database_config" {
     collation             = string
     license_type          = string
     max_size_gb           = number
-    read_scale            = bool
     sku_name              = string
   })
   description = "Specifies a object of dbconfig to be applied to the resources created."
