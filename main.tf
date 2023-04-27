@@ -73,7 +73,6 @@ resource "azurerm_mssql_database" "db" {
   max_size_gb    = var.database_config.max_size_gb
   read_scale     = var.database_config.read_scale
   sku_name       = var.database_config.sku_name
-  storage_account_type = var.database_config.storage_account_type
 }
 
 resource "azurerm_storage_account" "lab-sta" {

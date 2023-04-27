@@ -21,7 +21,6 @@ database_config = {
   max_size_gb           = 1
   read_scale            = true
   sku_name              = "S0"
-  storage_account_type  = "GRS"
 }
 
 storage_config = [
