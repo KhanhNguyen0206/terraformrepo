@@ -62,13 +62,14 @@ variable "tags" {
 
 variable "database_config" {
   type = object({
-    name           = string
-    collation      = string
-    license_type   = string
-    max_size_gb    = number
-    read_scale     = bool
-    sku_name       = string
-    zone_redundant = bool
+    name                  = string
+    collation             = string
+    license_type          = string
+    max_size_gb           = number
+    read_scale            = bool
+    sku_name              = string
+    zone_redundant        = bool
+    storage_account_type  = string
   })
   description = "Specifies a object of dbconfig to be applied to the resources created."
 }
