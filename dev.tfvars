@@ -18,9 +18,9 @@ database_config = {
   name           = "stag-db"
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"
-  storage_mb     = 5120
+  max_size_gb    = 1
   read_scale     = true
-  sku_name       = "B_Gen5_2"
+  sku_name       = "S0"
   zone_redundant = true
 }
 

@@ -65,7 +65,7 @@ variable "database_config" {
     name           = string
     collation      = string
     license_type   = string
-    storage_mb     = number
+    max_size_gb    = number
     read_scale     = bool
     sku_name       = string
     zone_redundant = bool

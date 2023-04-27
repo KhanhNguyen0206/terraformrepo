@@ -70,7 +70,7 @@ resource "azurerm_mssql_database" "db" {
   server_id      = azurerm_mssql_server.lab-mss.id
   collation      = var.database_config.collation
   license_type   = var.database_config.license_type
-  storage_mb     = var.database_config.storage_mb
+  max_size_gb    = var.database_config.max_size_gb
   read_scale     = var.database_config.read_scale
   sku_name       = var.database_config.sku_name
   zone_redundant = var.database_config.zone_redundant
