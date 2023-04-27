@@ -1,8 +1,8 @@
 terraform {
   required_providers {
-    azurerm ={
-        source = "hashicorp/azurerm"
-        version = "=3.0.0"
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=3.0.0"
     }
   }
 }
@@ -16,7 +16,7 @@ terraform {
 }
 provider "azurerm" {
   features {
-    
+
   }
 }
 resource "azurerm_resource_group" "lab-rg" {
@@ -58,8 +58,8 @@ resource "azurerm_linux_web_app" "app" {
 }
 resource "azurerm_mssql_server" "lab-mss" {
   name                         = var.mssql_server_name
-  resource_group_name      = azurerm_resource_group.lab-rg.name
-  location                 = azurerm_resource_group.lab-rg.location
+  resource_group_name          = azurerm_resource_group.lab-rg.name
+  location                     = azurerm_resource_group.lab-rg.location
   version                      = "12.0"
   administrator_login          = var.mssql_admin_login
   administrator_login_password = var.mssql_admin_password
