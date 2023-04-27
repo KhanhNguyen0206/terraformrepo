@@ -10,8 +10,7 @@ tags = {
   terraformDeployment = "true",
   Environment         = "STG"
 }
-database_config = 
-  {
+database_config = {
     name           = "stag-db"
     collation      = "SQL_Latin1_General_CP1_CI_AS"
     license_type   = "LicenseIncluded"
