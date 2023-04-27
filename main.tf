@@ -25,37 +25,37 @@ resource "azurerm_resource_group" "lab-rg" {
   tags     = var.tags
 }
 
-resource "azurerm_app_service_plan" "lab-asp" {
+resource "azurerm_service_plan" "lab-asp" {
   name                = var.app_service_plan_name
   location            = azurerm_resource_group.lab-rg.name
   resource_group_name = azurerm_resource_group.lab-rg.location
   tags                = var.tags
-  sku {
-    tier = "Standard"
-    size = "S1"
-  }
+  os_type             = "Linux"
+  sku_name            = "S1"
 }
 
-resource "azurerm_app_service" "lab-asv" {
-  name                = var.app_service_name
-  location            = azurerm_resource_group.lab-rg.location
+resource "azurerm_linux_web_app" "app" {
+  name                = "mywebapp"
   resource_group_name = azurerm_resource_group.lab-rg.name
-  app_service_plan_id = azurerm_app_service_plan.lab-asp.id
-  tags                = var.tags
+  location            = azurerm_resource_group.lab-rg.location
+  service_plan_id     = azurerm_service_plan.lab-asp.id
+
   site_config {
-    dotnet_framework_version = "v4.0"
-    scm_type                 = "LocalGit"
+    application_stack {
+      dotnet_version = "6.0"
+    }
+  }
+
+  app_settings = {
+    "SOME_KEY" = "some-value"
+  }
+
+  connection_string {
+    name  = "Database"
+    type  = "SQLAzure"
+    value = "Server=tcp:azurerm_mssql_server.sql.fully_qualified_domain_name Database=azurerm_mssql_database.db.name;User ID=azurerm_mssql_server.sql.administrator_login;Password=azurerm_mssql_server.sql.administrator_login_password;Trusted_Connection=False;Encrypt=True;"
   }
 }
-
-resource "azurerm_storage_account" "lab-sta" {
-  name                     = "labstaccount"
-  resource_group_name      = azurerm_resource_group.lab-rg.name
-  location                 = azurerm_resource_group.lab-rg.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
 resource "azurerm_mssql_server" "lab-mss" {
   name                         = var.mssql_server_name
   resource_group_name      = azurerm_resource_group.lab-rg.name
@@ -65,7 +65,7 @@ resource "azurerm_mssql_server" "lab-mss" {
   administrator_login_password = var.mssql_admin_password
 }
 
-resource "azurerm_mssql_database" "lab-db" {
+resource "azurerm_mssql_database" "db" {
   name           = var.mssql_database_name
   server_id      = azurerm_mssql_server.lab-mss.id
   collation      = var.database_config.collation
@@ -74,4 +74,12 @@ resource "azurerm_mssql_database" "lab-db" {
   read_scale     = var.database_config.read_scale
   sku_name       = var.database_config.sku_name
   zone_redundant = var.database_config.zone_redundant
+}
+
+resource "azurerm_storage_account" "lab-sta" {
+  name                     = "labstaccount"
+  resource_group_name      = azurerm_resource_group.lab-rg.name
+  location                 = azurerm_resource_group.lab-rg.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
 }
