@@ -1,7 +1,7 @@
 resource_group_name     = "dev-rg"
 resource_group_location = "eastus"
 web_app_name            = "terraformlabapp"
-storage_account         = "labterraformstaccount"
+storage_account         = "labterraformstaccount1"
 app_service_plan_name   = "dev-appserviceplan"
 app_service_name        = "dev-appservice"
 mssql_server_name       = "dev-terraformlabsqlserver"
@@ -21,7 +21,6 @@ database_config = {
   max_size_gb    = 1
   read_scale     = true
   sku_name       = "S2"
-  zone_redundant = true
 }
 
 storage_config = [

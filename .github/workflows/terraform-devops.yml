@@ -163,7 +163,7 @@ jobs:
   
   terraform_destroy:
     name: "Terraform_destroy"
-    needs: [terraform-plan]
+    needs: [terraform-apply]
     runs-on: ubuntu-latest
 
     steps:
