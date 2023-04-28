@@ -14,17 +14,18 @@ terraform {
     key                  = "tfstoragecontainer.tfstate"
   }
 }
+
 provider "azurerm" {
   features {
 
   }
 }
+
 resource "azurerm_resource_group" "lab-rg" {
   name     = var.resource_group_name
   location = var.resource_group_location
   tags     = var.tags
 }
-
 resource "azurerm_service_plan" "lab-asp" {
   name                = var.app_service_plan_name
   location            = azurerm_resource_group.lab-rg.location
@@ -33,7 +34,6 @@ resource "azurerm_service_plan" "lab-asp" {
   os_type             = "Linux"
   sku_name            = "S1"
 }
-
 resource "azurerm_linux_web_app" "app" {
   name                = var.web_app_name
   resource_group_name = azurerm_resource_group.lab-rg.name
